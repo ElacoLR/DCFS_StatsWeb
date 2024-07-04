@@ -1,3 +1,5 @@
+// Execute before running node server : fnm env --use-on-cd | Out-String | Invoke-Expression
+
 const express = require('express');
 const fs = require('fs');
 const Papa = require('papaparse');
