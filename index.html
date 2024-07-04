@@ -8,18 +8,14 @@
     <title>DCFS Server Stats</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="script.js"></script>
 </head>
 
 <body>
-    <div id="search-error-holder">
-        <p id="search-error-msg">닉네임을 찾을 수 없습니다.</p>
-    </div>
     <div class="wrapper">
         <form action="" id="search-form">
             <h1>DCFS 자본서버 스탯 조회</h1>
             <div class="input-box">
-                <input type="text" placeholder="닉네임 입력" required>
+                <input type="text" placeholder="닉네임 입력" name="nickname" id="nickname-field" class="search-form-field">
                 <i class='bx bxs-plane-take-off'></i>
             </div>
             <button type="submit" class="btn" id="search-btn">
@@ -61,6 +57,8 @@
             </div>
         </form>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
