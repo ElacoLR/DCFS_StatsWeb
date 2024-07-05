@@ -19,3 +19,30 @@ fetch('/players')
         }
     })
     .catch(error => console.error(`Error fetching player data:`, error));
+
+const nicknameForm = document.getElementById('search-form');
+
+if (nicknameForm) {
+    const isExist = false;
+    nicknameForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const inputnickname = document.getElementById('nickname').value;
+
+        fetch('/players')
+            .then(response => response.json())
+            .then(data => {
+                try {
+                    data.forEach(player => {
+                        if (player.nickname === inputnickname) {
+                            window.location.href = `../user-stat/index.html?nickname=${encodeURIComponent(nickname)}`;
+                            isExist = true;
+                            throw BreakException;
+                        }
+                    });
+                } catch (e) {
+                    if (e !== BreakException) throw e;
+                }
+            })
+            .catch(error => console.error(`Error fetching player data:`, error));
+    });
+}

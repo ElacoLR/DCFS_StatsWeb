@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Jua", sans-serif;
+    font-weight: 30;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(../public/bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper {
+    width: 560px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(2px);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.wrapper p {
+    font-size: 48px;
+    text-align: center;
+}
+
+.wrapper-stats {
+    margin-top: 30px;
+    width: 560px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(2px);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+table {
+    margin-top: 0;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    table-layout: fixed;
+}
+
+td {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+tr:nth-child(even) {
+    background-color: #2e2649;
+}
+
+tr:nth-child(odd) {
+    background-color: #423b5b;
+}
+
+th {
+    background-color: #342f44;
+    height: 35px;
+}

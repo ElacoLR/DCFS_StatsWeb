@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
@@ -12,26 +11,17 @@
 
 <body>
     <div class="wrapper">
-        <form action="" id="search-form">
-            <h1>DCFS 자본서버 스탯 조회</h1>
-            <div class="input-box">
-                <input type="text" placeholder="닉네임 입력" name="nickname" id="nickname" class="search-form-field">
-                <i class='bx bxs-plane-take-off'></i>
-            </div>
-            <button type="submit" class="btn" id="search-btn">
-                <span>조회</span>
-            </button>
+        <form action="" id="nickname-form">
+            <p id="user-nickname">placeholder</p>
         </form>
     </div>
 
-    <div class="wrapper-ranking">
-        <form action="">
-            <h2>Top 3</h2>
-            <div class="table-ranking">
-                <table class="table" id='ranking-table'>
+    <div class="wrapper-stats">
+        <form action="" id="stats-form">
+            <div class="table-stats">
+                <table class="table" id="stats-table">
                     <thead>
                         <tr>
-                            <th scope="col">닉네임</th>
                             <th scope="col">보유 자금</th>
                             <th scope="col">비행 시간</th>
                         </tr>
