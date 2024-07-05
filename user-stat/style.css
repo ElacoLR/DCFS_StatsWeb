@@ -14,7 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(../public/bg.png) no-repeat;
+    background: url(bg.png) no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -69,4 +69,83 @@ tr:nth-child(odd) {
 th {
     background-color: #342f44;
     height: 35px;
+}
+
+.wrapper-backbtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    width: 560px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(2px);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px 40px;
+}
+
+.wrapper-backbtn .btn {
+    width: 40%;
+    height: 30px;
+    position: relative;
+    background: #a3eaff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    overflow: hidden;
+}
+
+.wrapper-backbtn .btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.wrapper-backbtn .btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: -7px;
+    right: -10px;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.wrapper-backbtn .btn:hover span {
+    padding-right: 25px;
+}
+
+.wrapper-backbtn .btn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.wrapper-backbtn .btn:after {
+    content: "";
+    background: #d5f5ff;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s;
+}
+
+.wrapper-backbtn .btn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
 }

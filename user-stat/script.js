@@ -1,20 +1,30 @@
-const urlParams = new URLSearchParams(window.location.search);
-const nickname = urlParams.get('nickname');
-
-fetch('/players')
-    .then(response => response.json())
-    .then(data => {
-        const tableBody = document.getElementById('stats-table').querySelector('tbody');
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const inputnickname = urlParams.get('inputnickname');
+    const backBtn = document.getElementById('back-btn');
     
-        try {
-            data.forEach(player => {
-                const row = document.createElement('tr');
-                const convFlightTime = Math.round(player.flighttime / 3600) + 'H';
-                row.innerHTML = `<td>${player.asset}</td>\n<td>${convFlightTime}</td>`;
-                tableBody.appendChild(row);
-            });
-        } catch (e) {
-            throw e;
-        }
-    })
-    .catch(error => console.error(`Error fetching player data:`, error));
+    fetch('/players')
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.getElementById('stats-table').querySelector('tbody');
+            const nickBody = document.getElementById('user-nickname');
+            try {
+                data.forEach(player => {
+                    if (player.nickname === inputnickname) {
+                        const row = document.createElement('tr');
+                        const convFlightTime = Math.round(player.flighttime / 3600) + 'H';
+                        row.innerHTML = `<td>${player.asset}</td>\n<td>${convFlightTime}</td>`;
+                        nickBody.innerHTML = player.nickname;
+                        tableBody.appendChild(row);
+                    }
+                });
+            } catch (e) {
+                throw e;
+            }
+        })
+        .catch(error => console.error(`Error fetching player data:`, error));
+    
+    backBtn.addEventListener('click', () => {
+        window.location.href = `../index.html`;
+    });
+});

@@ -66,6 +66,16 @@ mergeCsvFiles();
 
 app.use(express.static('public'));
 
+app.use('/user-stat', express.static('user-stat'));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/user-stat', (req, res) => {
+    res.sendFile(path.join(__dirname, 'user-stat', 'index.html'));
+});
+
 app.get('/players', (req, res) => {
     fs.readFile('mergedCSV.csv', 'utf8', (err, data) => {
         if (err) {
