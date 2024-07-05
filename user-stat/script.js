@@ -1,3 +1,7 @@
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const inputnickname = urlParams.get('inputnickname');
@@ -13,7 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (player.nickname === inputnickname) {
                         const row = document.createElement('tr');
                         const convFlightTime = Math.round(player.flighttime / 3600) + 'H';
-                        row.innerHTML = `<td>${player.asset}</td>\n<td>${convFlightTime}</td>`;
+                        const convAsset = player.asset + '000';
+                        const commaAsset = '$' + numberWithCommas(convAsset);
+                        row.innerHTML = `<td>${commaAsset}</td>\n<td>${convFlightTime}</td>`;
                         nickBody.innerHTML = player.nickname;
                         tableBody.appendChild(row);
                     }

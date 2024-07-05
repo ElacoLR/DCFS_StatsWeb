@@ -1,3 +1,7 @@
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
+
 fetch('/players')
     .then(response => response.json())
     .then(data => {
@@ -7,8 +11,10 @@ fetch('/players')
         try {
             data.forEach(player => {
                 const row = document.createElement('tr');
+                const convAsset = player.asset + '000';
+                const commaAsset = '$'+ numberWithCommas(convAsset);
                 const convFlightTime = Math.round(player.flighttime / 3600) + 'H';
-                row.innerHTML = `<td>${player.nickname}</td>\n<td>${player.asset}</td>\n<td>${convFlightTime}</td>`;
+                row.innerHTML = `<td>${player.nickname}</td>\n<td>${commaAsset}</td>\n<td>${convFlightTime}</td>`;
                 tableBody.appendChild(row);
                 iteration++;
 
